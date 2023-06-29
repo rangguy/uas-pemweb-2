@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\Route;
 // })->middleware(['auth', 'verified'])->name('master');
 
 Route::get('/', function () {
-    return view('master');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard', function () {
-    return view('master');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
