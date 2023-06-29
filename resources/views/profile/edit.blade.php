@@ -115,7 +115,7 @@
         <div class="card">
             <h5 class="card-header">Hapus Akun</h5>
             <div class="card-body">
-                <div class="mb-3 col-12 mb-0">
+                <div class="mb-3 col-12">
                     <div class="alert alert-warning">
                         <h6 class="alert-heading fw-bold mb-1">Anda yakin ingin menghapus akun?</h6>
                         <p class="mb-0">Sekali Anda menghapus, semua data akan hilang terhapus secara permanen. Masukan
@@ -142,7 +142,7 @@
                                         password untuk konfirmasi untuk menghapus akun Anda</p>
                                     <div class="mb-3">
                                         <label for="password" class="col-form-label">Password</label>
-                                        <input type="password" class="form-control" id="password" placeholder="{{ __('Password') }}">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="{{ __('Password') }}">
                                         <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
                                     </div>
                                     <div class="modal-footer">
