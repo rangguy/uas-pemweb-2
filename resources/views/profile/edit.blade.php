@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title-document')
-<title>Halaman Profil</title>
+<title>Halaman Akun</title>
 @endsection
 
 @section('title')
