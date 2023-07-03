@@ -20,13 +20,14 @@ class Karyawan extends Model
 
     public function proyek()
     {
-        return $this->belongsTo(Proyek::class,'film_id');
+        return $this->belongsTo(Proyek::class,'proyek_id');
     }
 
     public function tugas()
     {
         return $this->belongsTo(Tugas::class,'tugas_id');
     }
+
     public function departemen()
     {
         return $this->belongsTo(Departemen::class,'departemen_id');

@@ -24,26 +24,23 @@ class KaryawanController extends Controller
         $proyek = Proyek::all();
         $tugas = Tugas::all();
         $departemen = Departemen::all();
-        return view('karyawan.create', compact('proyek'), compact('tugas'), compact('departemen'));
+        return view('karyawan.create', compact('proyek', 'departemen', 'tugas'));
     }
 
     public function store(Request $request)
     {
          // validasi data
          $request->validate([
-            'nama' => 'required|min:5|max:255|',
-            'id_proyek' => 'required',
-            'id_tugas' => 'required',
-            'id_departemen' => 'required'
+            'nama' => 'required|min:5|max:255|'
         ]);
 
         // masukan data request ke db table karyawan dengan orm
         $karyawan = new Karyawan;
 
         $karyawan->nama_karyawan = $request['nama'];
-        $karyawan->proyek_id = $request['id_proyek'];
-        $karyawan->tugas_id = $request['id_tugas'];
-        $karyawan->departemen_id = $request['id_departemen'];
+        $karyawan->proyek_id = $request['proyek_id'];
+        $karyawan->tugas_id = $request['tugas_id'];
+        $karyawan->departemen_id = $request['departemen_id'];
 
         $karyawan->save();
 
@@ -56,7 +53,10 @@ class KaryawanController extends Controller
     public function edit($id)
     {
         $karyawan = Karyawan::find($id);
-        return view('karyawan.edit',compact('karyawan'));
+        $proyek = Proyek::all();
+        $tugas = Tugas::all();
+        $departemen = Departemen::all();
+        return view('karyawan.edit', compact('karyawan','proyek', 'departemen', 'tugas'));
     }
 
     /**
@@ -69,15 +69,15 @@ class KaryawanController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|min:5|max:255|'
+            'nama' => 'required|min:5|max:255|',
         ]);
 
         $karyawan = Karyawan::find($id);
 
         $karyawan->nama_karyawan = $request['nama'];
-        $karyawan->proyek_id = $request['id_proyek'];
-        $karyawan->tugas_id = $request['id_tugas'];
-        $karyawan->departemen_id = $request['id_departemen'];
+        $karyawan->proyek_id = $request->proyek_id;
+        $karyawan->tugas_id = $request->tugas_id;
+        $karyawan->departemen_id = $request->departemen_id;
 
         $karyawan->save();
         
@@ -94,12 +94,12 @@ class KaryawanController extends Controller
      */
     public function destroy($id)
     {
-        $proyek = Karyawan::find($id);
+        $karyawan = Karyawan::find($id);
 
-        $proyek->delete();
+        $karyawan->delete();
 
-        // Alert::success('Berhasil', 'Berhasil Menghapus Tasks');
+        // Alert::success('Berhasil', 'Berhasil Menghapus Karyawan');
 
-        return redirect('/proyek');
+        return redirect('/karyawan');
     }
 }

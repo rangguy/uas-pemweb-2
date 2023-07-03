@@ -29,40 +29,40 @@
                         <x-input-error class="mt-2" :messages="$errors->get('nama')" />
                     </div>
                     <div class="mb-3 col-md">
-                        <label for="id_proyek">Proyek</label>
-                        <select class="form-control" name="id_proyek" id="id_proyek">
+                        <label for="proyek_id">Proyek</label>
+                        <select class="form-control" name="proyek_id" id="proyek_id">
                             <option value="">--Pilih Proyek--</option>
                             @forelse ($proyek as $item)
-                            <option value="{{$item->id_proyek}}">{{$item->nama_proyek}}</option>
+                                <option value="{{$item->id}}">{{$item->nama_proyek}}</option>
                             @empty
-                            <option value="">Belum ada data proyek</option>
+                                <option value="">Belum ada data proyek</option>
                             @endforelse
                         </select>
-                        <x-input-error class="mt-2" :messages="$errors->get('id_proyek')" />
+                        <x-input-error class="mt-2" :messages="$errors->get('proyek_id')" />
                     </div>
                     <div class="mb-3 col-md">
-                        <label for="id_tugas">Tugas</label>
-                        <select class="form-control" name="id_tugas" id="id_tugas">
+                        <label for="tugas_id">Tugas</label>
+                        <select class="form-control" name="tugas_id" id="tugas_id">
                             <option value="">--Pilih tugas--</option>
                             @forelse ($tugas as $item)
-                            <option value="{{$item->id_tugas}}">{{$item->nama_tugas}}</option>
+                                <option value="{{$item->id}}">{{$item->nama_tugas}}</option>
                             @empty
-                            <option value="">Belum ada data tugas</option>
+                                <option value="">Belum ada data tugas</option>
                             @endforelse
                         </select>
-                        <x-input-error class="mt-2" :messages="$errors->get('id_tugas')" />
+                        <x-input-error class="mt-2" :messages="$errors->get('tugas_id')" />
                     </div>
                     <div class="mb-3 col-md">
-                        <label for="id_departemen">Departemen</label>
-                        <select class="form-control" name="id_departemen" id="id_departemen">
+                        <label for="departemen_id">Departemen</label>
+                        <select class="form-control" name="departemen_id" id="departemen_id">
                             <option value="">--Pilih Departemen--</option>
                             @forelse ($departemen as $item)
-                            <option value="{{$item->id_departemen}}">{{$item->nama_departemen}}</option>
+                                <option value="{{$item->id}}">{{$item->nama_departemen}}</option>
                             @empty
-                            <option value="">Belum ada data departemen</option>
+                                <option value="">Belum ada data departemen</option>
                             @endforelse
                         </select>
-                        <x-input-error class="mt-2" :messages="$errors->get('id_departemen')" />
+                        <x-input-error class="mt-2" :messages="$errors->get('departemen_id')" />
                     </div>
 
                     <div class="mt-2">
