@@ -77,10 +77,28 @@
         <!-- Forms & Tables -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Tables</span></li>
         <!-- Tables -->
-        <li class="menu-item">
-            <a href="tables-basic.html" class="menu-link">
+        <li class="menu-item {{ request()->is('proyek*') ? 'active' : ''}}">
+            <a href="/proyek" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
-                <div data-i18n="Tables">Tables</div>
+                <div data-i18n="proyek">Proyek</div>
+            </a>
+        </li>
+        <li class="menu-item {{ request()->is('karyawan*') ? 'active' : ''}}">
+            <a href="/karyawan" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-table"></i>
+                <div data-i18n="karyawan">Karyawan</div>
+            </a>
+        </li>
+        <li class="menu-item {{ request()->is('tugas*') ? 'active' : ''}}">
+            <a href="/tugas" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-table"></i>
+                <div data-i18n="tugas">Tugas</div>
+            </a>
+        </li>
+        <li class="menu-item {{ request()->is('departemen*') ? 'active' : ''}}">
+            <a href="/departemen" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-table"></i>
+                <div data-i18n="departemen">Departemen</div>
             </a>
         </li>
     </ul>
